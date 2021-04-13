@@ -1,0 +1,27 @@
+/* default font  */
+html{
+    font-family: 'Roboto', sans-serif;
+}
+/* background */
+body{
+    background-color: antiquewhite;
+}
+
+
+/* header navigation  */
+nav ul {
+    display: flex;
+    align-items: center;
+    min-height: 15vh;
+    flex-wrap: wrap;
+}
+nav ul > *{
+    flex: 1 1 20%;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-align: center;
+}
+/* main container */
+
+ 
+
