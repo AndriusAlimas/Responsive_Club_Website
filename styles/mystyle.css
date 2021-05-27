@@ -152,6 +152,41 @@ nav ul > * {
   margin: 0 3rem;
 }
 
+/* history section */
+#history {
+  grid-area: history;
+}
+.history-table {
+  width: 100%;
+  color: #333333;
+  border-width: 1px;
+  border-color: #ebab3a;
+}
+.history-table th {
+  font-size: 12px;
+  background-color: #e6983b;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #ebab3a;
+  text-align: left;
+  font-weight: bolder;
+}
+.history-table tr {
+  background-color: #f0c169;
+}
+.history-table td {
+  font-size: 12px;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #ebab3a;
+}
+.history-table tr:hover {
+  background-color: yellow;
+  font-weight: 900;
+}
+
 /* footer */
 #footer {
   grid-area: footer;
