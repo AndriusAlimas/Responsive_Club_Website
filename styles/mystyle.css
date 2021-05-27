@@ -187,6 +187,11 @@ nav ul > * {
   font-weight: 900;
 }
 
+.elements,
+.skills {
+  display: flex;
+}
+
 /* footer */
 #footer {
   grid-area: footer;
