@@ -22,38 +22,54 @@
         <source src="music/Fantasy Music - Age of Wonders.ogg" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
-
-    <!-- header -->
-    <header>
+ 
+   <!-- main wrapper -->
+   <div class="wrapper">
+     <!-- header -->
+    <header class="header">
         <!-- navigation bar -->
         <nav class="navLinks">
             <ul>
-                <li id="about">
-                    <a href="#">About</a>
-                </li>
-                <li id="rules">
-                    <a href="#">Rules</a>
+                <li id="link-rules">
+                    <a href="#about">About & Rules</a>
                 </li>
                 <li><img id="logo" src="./img/age_of_wonders_logo.png" alt=""></li>
-                <li id="history">
-                    <a href="#">History</a>
+                <li id="link-history">
+                    <a href="#history">History</a>
                 </li>
-                <li><a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars fa-2x"></i>
-                  </a>
-                </li>
+             
             </ul>
         </nav>
-
     </header>
-    <!-- main container -->
-    <main>
-        <div class="hero"></div>
-    </main>
+  
+        <!-- hero section -->
+        <section class="hero">
+            <div class="welcome-box">
+                <h1 class="hero-title">Welcome To Age Of Wonders Master Club</h1>
+                <p class="hero-text">Best Players Gather Here!</p>
+                <button class="start-button" id="start">
+                    Start Game
+                </button>
+                   <!-- The Modal -->
+                    <div id="myModal" class="modal">
 
-
-
+                        <!-- Modal content -->
+                        <form class="modal-content">
+                            <span class="close">&times;</span>
+                         <label for="email">Please Enter Valid Email where your settings will be send :</label>
+                            <input type="email" id="email" required placeholder="..@gmail.com">
+                            <button onclick="sendEmail()">Send Data</button>
+                        </form>
+            </div> 
+        </section>
+            
+          
+          <!-- footer section -->
+          <footer id="footer">  
+                  <p style="text-align: center; margin-top: 5vh; color: black; font-size: 1.3em;">Created by &copy; Andrius Alimas 2021</p>
+          </footer>  
+    </div>
+    <!-- wrapper ends -->
+    </body>
     
-
-</body>
 </html>
