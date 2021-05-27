@@ -1,81 +1,158 @@
 /* default font  */
-html{
-    font-family: 'Roboto', sans-serif;
+html {
+  font-family: "Roboto", sans-serif;
 }
 /* background */
-body{
-    background-color: antiquewhite;
+body {
+  background: #3d7eaa; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #ffe47a,
+    #3d7eaa
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #ffe47a,
+    #3d7eaa
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* main wrapper */
+.wrapper {
+  display: grid;
+  grid-template:
+    "header header header header" auto
+    "main main main main" 65vh
+    "about about rules rules" auto
+    "history history history history" auto
+    "footer footer footer footer" 5vh
+    / [col-start] 1fr [col-1] 1fr [col-2] 1fr [col-3] 1fr [col-end];
 }
 
 /* hover links */
-#about a:hover,#rules a:hover,#history a:hover{ 
-    animation: pulse 1s infinite;
-    animation-timing-function: linear;     
+#link-about a:hover,
+#link-rules a:hover,
+#link-history a:hover {
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;
 }
 
-/* header navigation  */
+/* header navigation */
 nav ul {
-    display: flex;
-    align-items: center;
-    min-height: 15vh;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
-nav ul > *{
-    flex: 1 1 20%;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    text-align: center;
+nav ul > * {
+  flex: 1 1 20%;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  text-align: center;
 }
-/* main container */
+
 /* hero section */
-.hero{
-    min-height: 70vh;
-    background-image: url("../img/age_of_wonders_hero.jpg");
-    background-size: cover;
-    background-position: top;
+.hero {
+  background-image: url("../img/age_of_wonders_hero.jpg");
+  background-size: cover;
+  grid-area: main;
+  display: flex;
+}
+
+.hero-text {
+  color: yellow;
+  text-shadow: 1px 1px 2px black, 0 0 55px red, 0 -5px 5px darkred;
+  margin-top: 5vh;
+  word-spacing: 0.5em;
+  line-height: 1.5em;
+}
+.hero-title {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  line-height: 1.1em;
+  font-size: 3em;
+  text-align: center;
+}
+
+.welcome-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  flex: 0 0 55%;
+}
+
+/* footer */
+#footer {
+  grid-area: footer;
 }
 
 /* animation for hovering links  */
 @keyframes pulse {
-    0% { font-size: 1em; 
-        border: 3px dotted ghostwhite;
-        border-radius: 25%;
-   }
-    50% { font-size: 1.6em;
-        background-color: slategray;
-        color: brown;
-        border-radius: 50%;
-    }
-    100% { font-size: 1em; 
-        border-radius: 100%;
-   }
+  0% {
+    font-size: 1em;
+    border: 3px dotted ghostwhite;
+    border-radius: 25%;
+  }
+  50% {
+    font-size: 1.6em;
+    background-color: slategray;
+    color: brown;
+    border-radius: 50%;
+  }
+  100% {
+    font-size: 1em;
+    border-radius: 100%;
+  }
 }
-
- /* style for small screens */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+/* style for small screens */
 @media only screen and (max-width: 720px) {
-  
-    nav ul {
-        flex-direction: column;
-        
-    }
-    nav ul > *{
-        font-size: 2.2rem;
-    }
-    .icon{
-        display: none;
-    }
-    
-    #logo{
-        
-    }
-    #rules{
-        order: 2;
-    }
-    #history{
-        order: 3;
-    }
-    #about{
-        order: 1;
-    }
+  /* main wrapper */
+  .wrapper {
+    grid-template:
+      "header header header" auto
+      "main main main" 55vh
+      "about about about" auto
+      "rules rules rules" auto
+      "history history history" auto
+      "footer footer footer " 100px
+      / [col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end];
   }
 
+  .hero {
+    background-position: right;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul > * {
+    font-size: 2.2rem;
+  }
+  .icon {
+    display: none;
+  }
+
+  #link-rules {
+    order: 2;
+  }
+  #link-history {
+    order: 3;
+  }
+
+  .hero-title {
+    font-size: 2em;
+    padding-top: 3rem;
+  }
+}
