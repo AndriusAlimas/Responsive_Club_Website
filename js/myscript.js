@@ -22,6 +22,35 @@ span.onclick = function () {
 };
 
 // FUNCTIONS
+
+// send email function
+const sendEmail = () => {
+  // get email
+  var email = document.getElementById("email").value;
+
+  // template object that will be used when we send email
+  var templateParams = {
+    to_email: email,
+  };
+  // check if its valid email, if yes send information to provided email
+  if (validateEmail(email)) {
+    emailjs.send("gmail", "template_ix5scsg", templateParams).then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+        alert(
+          "Please check your " +
+            email +
+            "email, all instruction send successfully!"
+        );
+      },
+      function (error) {
+        console.log("FAILED...", error);
+      }
+    );
+    alert("Sending ... Wait couple seconds then press OK");
+  } // end if
+}; // end sendEmail function
+
 // this function check regex if has valid pattern for emails
 const validateEmail = (email) => {
   if (
