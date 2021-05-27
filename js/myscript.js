@@ -20,3 +20,17 @@ btn.onclick = function () {
 span.onclick = function () {
   modal.style.display = "none";
 };
+
+// FUNCTIONS
+// this function check regex if has valid pattern for emails
+const validateEmail = (email) => {
+  if (
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+      email
+    )
+  ) {
+    return true;
+  }
+  alert("You have entered an invalid email address!");
+  return false;
+};
