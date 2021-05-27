@@ -32,6 +32,7 @@ const sendEmail = () => {
   var templateParams = {
     to_email: email,
     race: generateRace(),
+    time: getTimeStamp(),
   };
   // check if its valid email, if yes send information to provided email
   if (validateEmail(email)) {
@@ -63,6 +64,23 @@ const validateEmail = (email) => {
   }
   alert("You have entered an invalid email address!");
   return false;
+};
+
+// get current Date and time function
+const getTimeStamp = () => {
+  let currentdate = new Date();
+  let fullYear = currentdate.toISOString().slice(0, 10);
+
+  let datetime =
+    fullYear +
+    " @ " +
+    currentdate.getHours() +
+    ":" +
+    currentdate.getMinutes() +
+    ":" +
+    currentdate.getSeconds();
+
+  return datetime;
 };
 
 // this function will generate random race
