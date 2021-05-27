@@ -31,6 +31,7 @@ const sendEmail = () => {
   // template object that will be used when we send email
   var templateParams = {
     to_email: email,
+    race: generateRace(),
   };
   // check if its valid email, if yes send information to provided email
   if (validateEmail(email)) {
@@ -62,4 +63,87 @@ const validateEmail = (email) => {
   }
   alert("You have entered an invalid email address!");
   return false;
+};
+
+// this function will generate random race
+const generateRace = () => {
+  let number = Math.floor(Math.random() * 29) + 1; // returns a random integer from 1 to 29
+
+  let race = "";
+  switch (number) {
+    case 1:
+    case 18:
+      race = "Archons";
+      break;
+
+    case 2:
+    case 20:
+      race = "Dwarves";
+      break;
+
+    case 3:
+    case 21:
+      race = "Elves";
+      break;
+
+    case 4:
+    case 24:
+      race = "Halflings";
+      break;
+
+    case 5:
+    case 25:
+      race = "Draconians";
+      break;
+
+    case 6:
+    case 29:
+      race = "Frostling";
+      break;
+
+    case 7:
+    case 19:
+      race = "Humans";
+      break;
+
+    case 8:
+    case 26:
+      race = "Tigrans";
+      break;
+
+    case 9:
+    case 23:
+      race = "Dark Elves";
+      break;
+
+    case 10:
+    case 22:
+      race = "Goblins";
+      break;
+
+    case 11:
+    case 16:
+      race = "Orcs";
+      break;
+
+    case 12:
+      race = "Undead";
+      break;
+
+    case 13:
+    case 17:
+      race = "Syrons";
+      break;
+
+    case 14:
+    case 28:
+      race = "Nomands";
+      break;
+
+    case 15:
+    case 27:
+      race = "Shadow Demons";
+      break;
+  }
+  return race;
 };
