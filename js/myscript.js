@@ -33,6 +33,7 @@ const sendEmail = () => {
     to_email: email,
     race: generateRace(),
     elements: generateElements(),
+    skills: generateSkills(),
     time: getTimeStamp(),
   };
   // check if its valid email, if yes send information to provided email
@@ -189,6 +190,85 @@ const generateElements = () => {
   return spheres;
 };
 
+// get randomly selected skills
+const generateSkills = () => {
+  let skills = [];
+  let skill = "";
+  let temp = "";
+  let answer = Math.floor(Math.random() * 2) + 1; // returns a random integer from 1 to 2
+  // greater than one means answer yes
+  // do you have bad skills?
+  if (answer > 1) {
+    // yes
+    let points = 1;
+    let skill = Math.floor(Math.random() * 5) + 1; // returns a random integer from 1 to 5
+    skill = getBadSkill(skill); // get single skill
+
+    if (skill.charAt(0) === "T") {
+      // if you got Technophobe, that means you got morer points to choose with good skills
+      points += 2;
+    } else {
+      points++;
+    }
+
+    skills.push(skill); // only one bad skill is allowed
+
+    for (; points > 0; points--) {
+      if (points > 2) {
+        // if you got Technophobe, you can have 2 more skills to get random
+        skill = Math.floor(Math.random() * 13) + 1; // returns a random integer from 1 to 13
+      } else {
+        skill = Math.floor(Math.random() * 11) + 1; // returns a random integer from 1 to 11
+      }
+
+      skill = getGoodSkill(skill); // get single skill
+      // check if its repeats
+      if (temp === skill) {
+        points++;
+        continue;
+      }
+
+      if (skills.includes("Technophobe") && skill === "Constructor") {
+        points++;
+        continue;
+      }
+
+      if (skills.includes("Bureaucrat") && skill === "Merchant") {
+        points++;
+        continue;
+      }
+
+      if (skills.includes("Pacifist") && skill === "Conqueror") {
+        points++;
+        continue;
+      }
+
+      if (skills.includes("Anarchist") && skill === "Peace Keeper") {
+        points++;
+        continue;
+      }
+
+      if (skills.includes("Decadence") && skill === "Survivalist") {
+        points++;
+        continue;
+      }
+
+      skills.push(skill);
+      if (skills.includes("Explorer") || skills.includes("Expander")) {
+        points--;
+      }
+
+      temp = skill;
+    }
+  } else {
+    // no
+    skill = Math.floor(Math.random() * 11) + 1; // returns a random integer from 1 to 11
+    skill = getGoodSkill(skill); // get single skill
+    skills.push(skill);
+  }
+  return skills;
+};
+
 // get single sphere this function will be used with random function to get all spheres
 const getSphere = (sphere) => {
   switch (sphere) {
@@ -204,5 +284,53 @@ const getSphere = (sphere) => {
       return "Air";
     case 6:
       return "Earth";
+  }
+};
+
+// get single good skill after getting random number
+const getGoodSkill = (skill) => {
+  switch (skill) {
+    case 1:
+      return "Summoner";
+    case 2:
+      return "Channeller";
+    case 3:
+      return "Casting Specialist";
+    case 4:
+      return "War Mage";
+    case 5:
+      return "Enchanter";
+    case 6:
+      return "Scholar";
+    case 7:
+      return "Constructor";
+    case 8:
+      return "Conqueror";
+    case 9:
+      return "Merchant";
+    case 10:
+      return "Survivalist";
+    case 11:
+      return "Peace Keeper";
+    case 12:
+      return "Expander";
+    case 13:
+      return "Explorer";
+  }
+};
+
+// get single bad skill
+const getBadSkill = (skill) => {
+  switch (skill) {
+    case 1:
+      return "Decadence";
+    case 2:
+      return "Anarchist";
+    case 3:
+      return "Pacifist";
+    case 4:
+      return "Bureaucrat";
+    case 5:
+      return "Technophobe";
   }
 };
