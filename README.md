@@ -7,6 +7,7 @@ Club group page that will dynamically respond as you adjust the size of your scr
 - **HTML**
 - **CSS**
 - **JS**
+- **EmailJS**
 - **Grid With Flexbox Layout**
 - **Media queries**
 - **Git**
