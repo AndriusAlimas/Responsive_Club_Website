@@ -32,6 +32,7 @@ const sendEmail = () => {
   var templateParams = {
     to_email: email,
     race: generateRace(),
+    elements: generateElements(),
     time: getTimeStamp(),
   };
   // check if its valid email, if yes send information to provided email
@@ -164,4 +165,44 @@ const generateRace = () => {
       break;
   }
   return race;
+};
+
+// this function generate all possible elements in random
+const generateElements = () => {
+  let spheres = []; // final results of spheres
+  let sphere = Math.floor(Math.random() * 2) + 1; // returns a random integer from 1 to 2
+  // 2 means single sphere same, other than 2 will go to else block
+  if (sphere > 1) {
+    sphere = Math.floor(Math.random() * 6) + 1; // returns a random integer from 1 to 6
+    sphere = getSphere(sphere); // get single sphere
+    // add this single sphere 6 times
+    for (let i = 0; i < 6; i++) {
+      spheres.push(sphere);
+    }
+  } else {
+    // all sphere will differently random
+    for (let i = 0; i < 6; i++) {
+      sphere = getSphere(Math.floor(Math.random() * 6) + 1); // get single sphere
+      spheres.push(sphere);
+    }
+  }
+  return spheres;
+};
+
+// get single sphere this function will be used with random function to get all spheres
+const getSphere = (sphere) => {
+  switch (sphere) {
+    case 1:
+      return "Fire";
+    case 2:
+      return "Life";
+    case 3:
+      return "Death";
+    case 4:
+      return "Water";
+    case 5:
+      return "Air";
+    case 6:
+      return "Earth";
+  }
 };
