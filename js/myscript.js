@@ -1,6 +1,8 @@
 (function () {
-  emailjs.init("user_cqlFQGPQ83gcI8oKnBtvB"); // initialize emailjs
+  // Use the new public key to initialize EmailJS
+  emailjs.init("LLDKK_TdnvHwzZL_J");
 })();
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
